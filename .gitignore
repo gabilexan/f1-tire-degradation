@@ -1,0 +1,12 @@
+# Entorno virtual
+venv/
+.venv/
+
+# Caché de F1 y Datos descargados
+f1_cache/
+*.csv
+data/
+
+# Python interno
+__pycache__/
+*.pyc
