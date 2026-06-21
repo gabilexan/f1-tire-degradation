@@ -1,0 +1,6 @@
+[theme]
+primaryColor = "#FF2800" # Rojo F1 para los botones y detalles
+backgroundColor = "#0E1117" # Fondo ultra oscuro
+secondaryBackgroundColor = "#1F2937" # Fondo de las tarjetas de métricas y sidebar
+textColor = "#FFFFFF" # Texto blanco
+base = "dark"
