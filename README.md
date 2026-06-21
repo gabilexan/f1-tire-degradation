@@ -43,13 +43,7 @@ f1-tire-degradation/
 
 Developed by **Karen**
 
-<a href="https://www.linkedin.com/in/karen-monsalve-699072136" target="_blank">
-  <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-</a>
-<a href="https://github.com/gabilexan" target="_blank">
-  <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
-</a>
-
-<br/><br/>
+* **LinkedIn:** [karen-monsalve-699072136](https://www.linkedin.com/in/karen-monsalve-699072136)
+* **GitHub:** [@gabilexan](https://github.com/gabilexan)
 
 *Feel free to reach out for collaboration or questions regarding race intelligence data engineering!*
