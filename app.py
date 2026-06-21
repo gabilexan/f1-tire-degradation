@@ -6,14 +6,14 @@ import plotly.express as px
 st.set_page_config(page_title="F1 Tire Analytics", page_icon="🏎️", layout="wide")
 
 st.title("🏎️ F1 Tire Performance Dashboard")
-st.markdown("Análisis de degradación de neumáticos basado en telemetría real.")
+st.markdown("Tire degradation analysis derived from actual racing telemetry.")
 
 # Cargar los datos generados por tu script anterior
 try:
     df = pd.read_csv('data/norris_laps_barcelona.csv')
     
     # Sidebar para filtros
-    st.sidebar.header("Filtros de Carrera")
+    st.sidebar.header("Race Filters")
     selected_stint = st.sidebar.multiselect("Seleccionar Stint", options=df['Stint'].unique(), default=df['Stint'].unique())
     
     # Filtrar dataframe
@@ -21,16 +21,16 @@ try:
 
     # Layout de columnas para métricas
     col1, col2, col3 = st.columns(3)
-    col1.metric("Compuesto Principal", df_filtered['Compound'].iloc[0])
-    col2.metric("Mejor Vuelta", f"{df_filtered['LapTimeSeconds'].min():.3f}s")
-    col3.metric("Vueltas Analizadas", len(df_filtered))
+    col1.metric("Baseline Compound", df_filtered['Compound'].iloc[0])
+    col2.metric("Best Lap", f"{df_filtered['LapTimeSeconds'].min():.3f}s")
+    col3.metric("Analyzed Laps", len(df_filtered))
 
     # Gráfico interactivo de degradación
-    st.subheader("Curva de Degradación (Tiempo vs Vida del Neumático)")
+    st.subheader("Degradation Curve (Lap Time vs Tire Age)")
     fig = px.scatter(df_filtered, x="TyreLife", y="LapTimeSeconds", 
                      color="Compound", trendline="ols",
-                     title="Evolución del Ritmo por Vuelta",
-                     labels={"TyreLife": "Vueltas del Neumático", "LapTimeSeconds": "Tiempo (s)"})
+                     title="Pace Evolution per Lap",
+                     labels={"TyreLife": "Lap Time (s)", "LapTimeSeconds": "Time(s)"})
     
     st.plotly_chart(fig, use_container_width=True)
 

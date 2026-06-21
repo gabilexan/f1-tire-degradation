@@ -34,3 +34,12 @@ f1-tire-degradation/
 ├── app.py              # Main web interface application
 ├── .gitignore          # Rules to prevent uploading heavy data or virtual environments
 └── requirements.txt    # Project dependencies configuration
+
+---
+
+## 👤 Author
+
+Developed by **Nicole** [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/TU_PERFIL_LINKEDIN)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/gabilexan)
+
+*Feel free to reach out for collaboration or questions regarding race intelligence data engineering!*
