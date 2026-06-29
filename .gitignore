@@ -4,8 +4,9 @@ venv/
 
 # Caché de F1 y Datos descargados
 f1_cache/
-*.csv
-data/
+
+# Permitir explícitamente el archivo de datos para la app
+!data/f1_barcelona_comparison.csv
 
 # Python interno
 __pycache__/
