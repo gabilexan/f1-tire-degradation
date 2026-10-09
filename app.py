@@ -49,10 +49,14 @@ def format_lap_time(seconds):
     secs = seconds % 60
     return f"{minutes}:{secs:06.3f}"
 
-# Cached session loader
+# Cached session & event loaders
 @st.cache_data(show_spinner=False)
 def get_cached_laps(year, event_name):
     return f1e.load_session_laps(year, event_name, 'R')
+
+@st.cache_data(show_spinner=False)
+def get_cached_events(year):
+    return f1e.get_events_for_year(year)
 
 # --- HEADER SECTION ---
 st.title("🏎️ F1 Race Intelligence Platform")
@@ -82,8 +86,9 @@ if view_mode != "🔮 Win Probability (Singapore 2026)":
 
     data_source = st.sidebar.radio(
         "Data Load Mode",
-        options=["Live FIA API (Dynamic GP)", "Local Barcelona Dataset"],
-        help="Live FIA API fetches dynamic Grand Prix telemetry via FastF1. Local Dataset is pre-processed and loads instantly."
+        options=["Local Barcelona Dataset", "Live FIA API (Dynamic GP)"],
+        index=0,
+        help="Local Dataset loads instantly on app start. Live FIA API fetches dynamic Grand Prix telemetry via FastF1."
     )
 
     if data_source == "Local Barcelona Dataset":
@@ -100,7 +105,7 @@ if view_mode != "🔮 Win Probability (Singapore 2026)":
         with col_y:
             selected_year = st.selectbox("Year", options=f1e.get_available_years(), index=0)
         
-        events = f1e.get_events_for_year(selected_year)
+        events = get_cached_events(selected_year)
         default_idx = events.index("Spanish Grand Prix") if "Spanish Grand Prix" in events else 0
         
         with col_gp:

@@ -3,8 +3,10 @@ import fastf1
 import pandas as pd
 import numpy as np
 
-# Enable cache safely
-CACHE_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'f1_cache')
+import tempfile
+
+# Enable cache safely for cloud deployment (Streamlit Cloud compatible)
+CACHE_DIR = os.path.join(tempfile.gettempdir(), 'f1_cache')
 os.makedirs(CACHE_DIR, exist_ok=True)
 fastf1.Cache.enable_cache(CACHE_DIR)
 
