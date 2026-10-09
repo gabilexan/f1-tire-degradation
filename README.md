@@ -25,15 +25,26 @@ The project is built under a comprehensive, end-to-end engineering approach:
 ## 📁 Project Structure
 
 ```text
-f1-tire-degradation/
-├── data/               # Processed and indexed CSV files
-├── f1_cache/           # Local storage for raw telemetry data (Git-ignored)
-├── notebooks/          # Workspace for experimental exploratory data analysis (EDA)
+├── data/               # Processed and indexed CSV datasets
+├── f1_cache/           # FastF1 disk cache for raw telemetry (Git-ignored)
+├── notebooks/          # Workspace for exploratory data analysis (EDA)
 ├── scripts/
-│   └── get_f1_data.py  # Data ingestion and preprocessing pipeline
-├── app.py              # Main web interface application
-├── .gitignore          # Rules to prevent uploading heavy data or virtual environments
+│   ├── f1_data_engine.py # Dynamic FastF1 API ingestion, cleaning & strategy engine
+│   └── get_f1_data.py    # Offline dataset extraction script
+├── app.py              # Main interactive Streamlit analytics dashboard
+├── .gitignore          # Rules to prevent uploading heavy cache files
 └── requirements.txt    # Project dependencies configuration
+
+---
+
+## 💡 Key Features Implemented
+
+- **Dynamic GP & Season Selection:** Ingests live or cached race telemetry from any Grand Prix (2022 - 2024 seasons).
+- **Single Driver Wear Rate Breakdown:** Fits regression models per stint to calculate degradation slope (\(s / \text{lap}\)) and base pace.
+- **Head-to-Head Pace Comparison:** Contrast race pace and tire degradation rates between any two drivers in real-time.
+- **Pitstop Window Estimator:** Simulates cumulative wear overhead against pit stop loss penalties to highlight optimal pit windows.
+- **🔮 Win Probability Predictor (Singapore GP 2026):** Monte Carlo stochastic engine (up to 10,000 simulations) factoring street circuit pace deltas, tire thermal degradation, qualifying track position weighting, and Safety Car probabilities.
+- **F1 Official Compound Palette:** Dynamic visual styling matching Soft (Red), Medium (Yellow), Hard (White), Inter, and Wet compounds.
 
 ---
 
